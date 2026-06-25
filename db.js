@@ -58,6 +58,17 @@ async function init() {
     )
   `);
 
+  // Link an order to the Stripe Checkout session that paid for it, so the
+  // same payment can never create two orders. Added via ALTER so this also
+  // upgrades an orders table that already exists. The partial UNIQUE index
+  // enforces "one order per session" while still allowing many NULLs
+  // (orders placed without payment).
+  await pool.query('ALTER TABLE orders ADD COLUMN IF NOT EXISTS stripe_session_id TEXT');
+  await pool.query(`
+    CREATE UNIQUE INDEX IF NOT EXISTS orders_stripe_session_id_key
+    ON orders (stripe_session_id) WHERE stripe_session_id IS NOT NULL
+  `);
+
   await pool.query(`
     CREATE TABLE IF NOT EXISTS order_items (
       id         SERIAL PRIMARY KEY,

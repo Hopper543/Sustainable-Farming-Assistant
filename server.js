@@ -14,6 +14,34 @@ const app = express();
 app.set('trust proxy', 1); // we run behind the host's proxy (for HTTPS + cookies)
 const PORT = process.env.PORT || 3000; // the host assigns a port via env
 
+// ---- Stripe webhook ----
+// MUST be defined BEFORE express.json(): Stripe signs the RAW request bytes,
+// so this route needs the unparsed body. Stripe calls this directly when a
+// payment completes — reliable even if the buyer's browser never returns to
+// our success page. We verify the signature, then create the order.
+app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  const secret = process.env.STRIPE_WEBHOOK_SECRET;
+  if (!stripe || !secret) return res.status(500).end();
+
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(req.body, req.headers['stripe-signature'], secret);
+  } catch (err) {
+    console.error('Webhook signature failed:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  if (event.type === 'checkout.session.completed') {
+    const s = event.data.object;
+    const uid = parseInt(s.client_reference_id, 10);
+    if (uid && s.payment_status === 'paid') {
+      try { await createOrderForUser(uid, s.id); }
+      catch (e) { console.error('Webhook order error:', e); }
+    }
+  }
+  res.json({ received: true }); // 2xx tells Stripe we got it
+});
+
 // Parse JSON request bodies (so req.body works on POST routes)
 app.use(express.json());
 
@@ -210,7 +238,17 @@ app.put('/api/cart', requireLogin, async (req, res) => {
 
 // Build an order from the user's cart. Returns the order, or null if the
 // cart is empty. Used by the direct route AND after Stripe payment.
-async function createOrderForUser(uid) {
+async function createOrderForUser(uid, sessionId = null) {
+  // Idempotency: if this Stripe session already produced an order, return
+  // it instead of making a duplicate. Both the webhook and the success
+  // redirect call this; only the first should actually create the order.
+  if (sessionId) {
+    const { rows } = await pool.query(
+      'SELECT id, total FROM orders WHERE stripe_session_id = $1', [sessionId]
+    );
+    if (rows.length) return { id: rows[0].id, total: rows[0].total, items: [] };
+  }
+
   const { rows: items } = await pool.query(`
     SELECT c.product_id, c.qty, p.name, p.price
     FROM cart_items c
@@ -226,7 +264,8 @@ async function createOrderForUser(uid) {
   try {
     await client.query('BEGIN');
     const { rows } = await client.query(
-      'INSERT INTO orders (user_id, total) VALUES ($1, $2) RETURNING id', [uid, total]
+      'INSERT INTO orders (user_id, total, stripe_session_id) VALUES ($1, $2, $3) RETURNING id',
+      [uid, total, sessionId]
     );
     const orderId = rows[0].id;
     for (const it of items) {
@@ -240,6 +279,14 @@ async function createOrderForUser(uid) {
     return { id: orderId, total, items };
   } catch (err) {
     await client.query('ROLLBACK');
+    // If two calls raced, the unique index rejects the second insert —
+    // return the order the winner already created.
+    if (err.code === '23505' && sessionId) {
+      const { rows } = await pool.query(
+        'SELECT id, total FROM orders WHERE stripe_session_id = $1', [sessionId]
+      );
+      if (rows.length) return { id: rows[0].id, total: rows[0].total, items: [] };
+    }
     throw err;
   } finally {
     client.release();
@@ -352,7 +399,7 @@ app.get('/api/checkout/success', requireLogin, async (req, res) => {
     const paid = cs.payment_status === 'paid';
     const mine = String(cs.client_reference_id) === String(req.session.userId);
     if (paid && mine) {
-      try { await createOrderForUser(req.session.userId); } catch (e) { console.error(e); }
+      try { await createOrderForUser(req.session.userId, cs.id); } catch (e) { console.error(e); }
       return res.redirect('/orders.html');
     }
   } catch (err) {
