@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Sustainable Farming Assistant account or create a new one.">
+  <title>Account — Sustainable Farming Assistant</title>
+  <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/microsoft-teams/337/seedling_1f331.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="theme.css">
+
+  <style>
+    .auth-card { max-width: 440px; margin: 0 auto 90px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 30px; }
+    .auth-tabs { display: flex; gap: 4px; margin-bottom: 8px; background: var(--cream); border: 1px solid var(--line); border-radius: 999px; padding: 4px; }
+    .auth-tab { flex: 1; border: none; background: none; padding: 9px; border-radius: 999px; cursor: pointer; font-family: var(--sans); font-size: 0.9rem; color: var(--muted); transition: background 0.15s ease, color 0.15s ease; }
+    .auth-tab.active { background: var(--sage); color: #fff; }
+    .auth-card label { display: block; font-size: 0.85rem; color: var(--muted); margin: 16px 0 6px; }
+    .auth-card input { width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 10px; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 1rem; }
+    .auth-card .btn { width: 100%; justify-content: center; margin-top: 22px; }
+    .auth-error { color: var(--terra); font-size: 0.88rem; margin-top: 14px; min-height: 1.2em; }
+    .auth-panel { text-align: center; padding: 8px 0; }
+    .auth-panel .avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--sage-soft); color: var(--sage); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.6rem; margin: 0 auto 16px; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><span class="dot">&#127793;</span> Sustainable Farming Assistant</a>
+      <nav class="nav-links">
+        <a href="index.html#tools">Tools</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html" class="hide-sm">Journal</a>
+        <a href="about.html" class="hide-sm">About</a>
+        <a href="account.html" id="navAccount" class="active">Log in</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="page-hero">
+      <p class="eyebrow">Account</p>
+      <h1 id="authTitle">Welcome back</h1>
+      <p id="authSub">Sign in to your account, or create a new one.</p>
+    </section>
+
+    <div class="auth-card" id="authCard"></div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          Sustainable Farming Assistant
+          <p>Tools and knowledge for farming that's good for the yield and the land.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="index.html#tools">Tools</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Journal</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@farmingassistant.com">info@farmingassistant.com</a>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a>
+        </div>
+      </div>
+      <div class="copyright">&copy; <span class="js-year">2026</span> Sustainable Farming Assistant &middot; For educational purposes</div>
+    </div>
+  </footer>
+
+  <script src="motion.js"></script>
+  <script src="account.js"></script>
+</body>
+</html>

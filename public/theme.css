@@ -1,0 +1,213 @@
+/* ============================================================
+   Sustainable Farming Assistant — shared design system
+   Linked by every redesigned page. Anything reused across
+   pages lives here; page-specific styles stay on their page.
+   ============================================================ */
+
+:root {
+  --cream: #F6F2E8;
+  --cream-deep: #EFE9DA;
+  --surface: #FFFFFF;
+  --ink: #2B2924;
+  --muted: #6F695E;
+  --sage: #5F7050;
+  --sage-2: #4E5D42;
+  --sage-soft: #E9EEE0;
+  --terra: #BD6A4C;
+  --terra-soft: #F3E3DA;
+  --line: #E6DECF;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; border-radius: 2px; }
+
+/* Reusable uppercase label */
+.eyebrow {
+  font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--terra); font-weight: 500; margin-bottom: 22px;
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(246, 242, 232, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.25rem; font-weight: 500; letter-spacing: -0.01em;
+  display: flex; align-items: center; gap: 9px;
+}
+.brand .dot { color: var(--sage); }
+.nav-links { display: flex; align-items: center; gap: 30px; }
+.nav-links a { font-size: 0.92rem; color: var(--muted); transition: color 0.18s ease; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); }
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--sans); font-size: 1rem; font-weight: 500;
+  background: var(--sage); color: #fff;
+  padding: 14px 26px; border-radius: 999px; border: none; cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.btn:hover { background: var(--sage-2); transform: translateY(-1px); }
+.btn svg { width: 18px; height: 18px; }
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--cream-deep);
+  border-top: 1px solid var(--line);
+  padding: 56px 0 32px;
+}
+.foot-grid {
+  display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;
+  margin-bottom: 40px;
+}
+.foot-brand { font-family: var(--serif); font-size: 1.15rem; max-width: 30ch; }
+.foot-brand p { color: var(--muted); font-size: 0.92rem; margin-top: 10px; font-family: var(--sans); }
+.foot-col h4 {
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 14px; font-weight: 500;
+}
+.foot-col a { display: block; color: var(--muted); font-size: 0.92rem; margin-bottom: 9px; transition: color 0.18s ease; }
+.foot-col a:hover { color: var(--ink); }
+.copyright { border-top: 1px solid var(--line); padding-top: 24px; font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Modal + tool results (reused by the homepage tools) ---------- */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(43, 41, 36, 0.45);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.modal-backdrop.open { opacity: 1; pointer-events: auto; }
+.modal {
+  background: var(--cream); border: 1px solid var(--line); border-radius: 18px;
+  width: 100%; max-width: 520px; max-height: 85vh; overflow-y: auto;
+  transform: translateY(8px); transition: transform 0.2s ease;
+}
+.modal-backdrop.open .modal { transform: none; }
+.modal-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; padding: 26px 26px 0;
+}
+.modal-head h3 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; }
+.modal-close {
+  flex-shrink: 0; background: none; border: none; cursor: pointer; color: var(--muted);
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.modal-close:hover { background: var(--terra-soft); color: var(--terra); }
+.modal-close svg { width: 20px; height: 20px; }
+.modal-body { padding: 18px 26px 28px; }
+.modal-body label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+.modal-body select, .modal-body input {
+  width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface); color: var(--ink); font-family: var(--sans); font-size: 1rem;
+}
+.modal-body .btn { width: 100%; justify-content: center; }
+.result { margin-top: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.result h4 { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; }
+.result .label {
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--sage); margin-top: 14px; margin-bottom: 4px;
+}
+.result ul { margin: 4px 0 0 18px; }
+.result li { margin-bottom: 6px; }
+.result a { color: var(--sage); text-decoration: underline; }
+.muted-note { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+
+/* ---------- Mobile nav toggle ---------- */
+.nav-toggle {
+  display: none; background: none; border: none; cursor: pointer;
+  color: var(--ink); padding: 6px; margin: -6px -6px -6px 0;
+}
+.nav-toggle svg { width: 24px; height: 24px; display: block; }
+
+/* ---------- Shared responsive ---------- */
+@media (max-width: 700px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--cream); border-bottom: 1px solid var(--line);
+    box-shadow: 0 10px 24px rgba(43, 41, 36, 0.07);
+    padding: 6px 0; display: none;
+  }
+  .nav.open .nav-links { display: flex; }
+  .nav-links a, .nav-links .cart-btn {
+    width: 100%; justify-content: flex-start;
+    padding: 13px 24px; font-size: 1rem; border-radius: 0;
+  }
+  .nav-links a.hide-sm { display: block; }
+  .brand { font-size: 1.05rem; }
+  .wrap { padding: 0 20px; }
+}
+
+/* ---------- Scroll reveal + motion (used with motion.js) ---------- */
+[data-reveal] {
+  opacity: 0; transform: translateY(44px) scale(0.97);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ---------- Shop links inside tool results + toast ---------- */
+.shop-links { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.shop-link {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; text-align: left; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px;
+  cursor: pointer; font-family: var(--sans); font-size: 0.9rem; color: var(--ink);
+  transition: border-color 0.15s ease;
+}
+.shop-link:hover { border-color: var(--sage); }
+.sl-name { font-weight: 500; }
+.sl-add { color: var(--sage); font-weight: 500; font-size: 0.82rem; white-space: nowrap; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px);
+  background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 999px;
+  font-size: 0.9rem; opacity: 0; pointer-events: none; z-index: 200;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.toast.show { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.toast a { color: #fff; text-decoration: underline; }
+
+/* ---------- Shared page hero (About, Journal, Farm, Shop) ---------- */
+.page-hero { padding: 80px 0 48px; text-align: center; }
+.page-hero h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.3rem, 5vw, 3.4rem); line-height: 1.1;
+  letter-spacing: -0.02em; max-width: 20ch; margin: 0 auto 16px;
+}
+.page-hero p { font-size: 1.1rem; color: var(--muted); max-width: 52ch; margin: 0 auto; }

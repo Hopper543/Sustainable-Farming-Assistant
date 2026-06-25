@@ -1,0 +1,12 @@
+# Dependencies (re-installed on the host from package.json)
+node_modules/
+
+# Secrets — never commit these
+.env
+
+# The local database file (data is recreated; secrets/data don't belong in Git)
+farm.db
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

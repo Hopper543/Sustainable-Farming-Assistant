@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seeds, tools, compost, and natural pest control — a curated shop for your sustainable plot.">
+  <meta property="og:title" content="Shop — Sustainable Farming Assistant">
+  <meta property="og:description" content="Seeds, tools, compost, and natural pest control — a curated shop for your sustainable plot.">
+  <meta property="og:type" content="website">
+  <title>Shop — Sustainable Farming Assistant</title>
+  <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/microsoft-teams/337/seedling_1f331.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="theme.css">
+
+  <style>
+
+    /* Cart button in the nav */
+    .cart-btn { position: relative; background: none; border: none; cursor: pointer; color: var(--ink); display: inline-flex; align-items: center; gap: 7px; font-family: var(--sans); font-size: 0.92rem; }
+    .cart-btn svg { width: 19px; height: 19px; }
+    .cart-count { background: var(--sage); color: #fff; border-radius: 999px; font-size: 0.68rem; min-width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; padding: 0 5px; }
+
+    /* Filters */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; justify-content: center; }
+    .filter { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-family: var(--sans); font-size: 0.88rem; color: var(--muted); transition: all 0.15s ease; }
+    .filter:hover { border-color: var(--sage); color: var(--ink); }
+    .filter.active { background: var(--sage); color: #fff; border-color: var(--sage); }
+
+    /* Product grid */
+    .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px; padding-bottom: 90px; }
+    .product { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+    .product .thumb { aspect-ratio: 4 / 3; background: var(--sage-soft); display: flex; align-items: center; justify-content: center; }
+    .product .thumb svg { width: 44px; height: 44px; color: var(--sage); opacity: 0.6; }
+    .product .pbody { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .product .ptag { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--terra); margin-bottom: 8px; }
+    .product h3 { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; margin-bottom: 6px; }
+    .product .pblurb { font-size: 0.87rem; color: var(--muted); flex: 1; margin-bottom: 16px; }
+    .product .prow { display: flex; align-items: center; justify-content: space-between; }
+    .product .price { font-family: var(--serif); font-size: 1.2rem; }
+    .add-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--sage); color: #fff; border: none; cursor: pointer; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; padding: 9px 15px; border-radius: 999px; transition: background 0.15s ease; }
+    .add-btn:hover { background: var(--sage-2); }
+
+    /* Cart drawer */
+    .cart-backdrop { position: fixed; inset: 0; background: rgba(43,41,36,0.45); opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 60; }
+    .cart-backdrop.open { opacity: 1; pointer-events: auto; }
+    .cart-drawer { position: fixed; top: 0; right: 0; height: 100%; width: min(400px, 92vw); background: var(--cream); border-left: 1px solid var(--line); transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); z-index: 61; display: flex; flex-direction: column; }
+    .cart-drawer.open { transform: none; }
+    .cart-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; border-bottom: 1px solid var(--line); }
+    .cart-head h3 { font-family: var(--serif); font-weight: 500; font-size: 1.4rem; }
+    .cart-close { background: none; border: none; cursor: pointer; color: var(--muted); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .cart-close:hover { background: var(--terra-soft); color: var(--terra); }
+    .cart-close svg { width: 19px; height: 19px; }
+    .cart-items { flex: 1; overflow-y: auto; padding: 8px 24px; }
+    .cart-item { display: flex; gap: 12px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .ci-info { flex: 1; }
+    .ci-name { font-weight: 500; font-size: 0.92rem; }
+    .ci-price { font-size: 0.84rem; color: var(--muted); margin-top: 2px; }
+    .qty { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+    .qty button { width: 26px; height: 26px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 1rem; color: var(--ink); line-height: 1; }
+    .qty span { font-size: 0.9rem; min-width: 18px; text-align: center; }
+    .ci-remove { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 0.78rem; text-decoration: underline; padding: 0; }
+    .cart-empty { color: var(--muted); text-align: center; padding: 50px 20px; }
+    .cart-foot { padding: 20px 24px; border-top: 1px solid var(--line); }
+    .cart-total { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+    .cart-total .t-label { color: var(--muted); }
+    .cart-total .t-value { font-family: var(--serif); font-size: 1.4rem; }
+    .cart-foot .btn { width: 100%; justify-content: center; }
+    .cart-foot .btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+    .shop-controls { display: flex; justify-content: center; margin-bottom: 18px; }
+    #searchInput { width: 100%; max-width: 440px; padding: 12px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-family: var(--sans); font-size: 0.95rem; }
+    #searchInput::placeholder { color: var(--muted); }
+    .shop-count { text-align: center; color: var(--muted); font-size: 0.85rem; margin-bottom: 22px; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><span class="dot">&#127793;</span> Sustainable Farming Assistant</a>
+      <nav class="nav-links">
+        <a href="index.html#tools">Tools</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="blog.html" class="hide-sm">Journal</a>
+        <a href="about.html" class="hide-sm">About</a>
+        <a href="account.html" id="navAccount">Log in</a>
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"></path></svg>
+          Cart <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="page-hero">
+      <p class="eyebrow">Farm shop</p>
+      <h1>Seeds, tools, and good soil</h1>
+      <p>A small, carefully chosen range to help your sustainable plot thrive.</p>
+    </section>
+
+    <div class="shop-controls"><input type="search" id="searchInput" placeholder="Search the shop…" aria-label="Search products"></div>
+    <div class="filters" id="filters"></div>
+    <p class="shop-count" id="shopCount"></p>
+    <div class="shop-grid" id="shopGrid"></div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          Sustainable Farming Assistant
+          <p>Tools and knowledge for farming that's good for the yield and the land.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="index.html#tools">Tools</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Journal</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@farmingassistant.com">info@farmingassistant.com</a>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a>
+        </div>
+      </div>
+      <div class="copyright">&copy; <span class="js-year">2026</span> Sustainable Farming Assistant &middot; For educational purposes</div>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="cart-head">
+      <h3>Your cart</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span class="t-label">Subtotal</span><span class="t-value" id="cartTotal">$0.00</span></div>
+      <button class="btn" id="checkoutBtn" disabled>Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Reused modal for the checkout confirmation -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="modalTitle">Order placed</h3>
+        <button class="modal-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="motion.js"></script>
+  <script src="cart.js"></script>
+  <script src="shop.js"></script>
+</body>
+</html>

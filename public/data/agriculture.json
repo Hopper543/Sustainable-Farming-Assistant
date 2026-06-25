@@ -1,0 +1,674 @@
+{
+  "meta": {
+    "description": "Curated reference data for the Sustainable Farming Assistant. Each entry carries a real source link to an agricultural-extension, university, or RHS publication, verified June 2026.",
+    "disclaimer": "Growing advice is regional. Which pests are present, when crops are sown, and which treatments are legal all vary by country and climate. The soil categories mix USDA texture classes with UK garden descriptors (peat, chalk). Treat this as a verified starting point and confirm specifics with your local agricultural extension service.",
+    "sourcedOn": "2026-06",
+    "version": 2
+  },
+  "soil": {
+    "sources": [
+      {
+        "name": "USDA NRCS — Soil Texture",
+        "url": "https://www.nrcs.usda.gov/resources/education-and-teaching-materials/soil-texture-calculator"
+      },
+      {
+        "name": "Iowa State University — Soil Texture",
+        "url": "https://iastate.pressbooks.pub/isudp-2025-201/chapter/soil-texture/"
+      },
+      {
+        "name": "Colorado State University Extension — Estimating Soil Texture",
+        "url": "https://extension.colostate.edu/resource/estimating-soil-texture-sandy-loamy-or-clayey/"
+      }
+    ],
+    "types": {
+      "Sandy": {
+        "characteristics": "Light and gritty, drains quickly, warms early in spring, but holds little water or nutrient.",
+        "ph": "Variable, often slightly acidic.",
+        "drainage": "Fast — can dry out and leach nutrients.",
+        "crops": [
+          "Carrots",
+          "Parsnips",
+          "Potatoes",
+          "Radishes",
+          "Onions",
+          "Lettuce",
+          "Strawberries",
+          "Asparagus"
+        ],
+        "amendments": [
+          "Dig in plenty of compost or well-rotted manure to build water and nutrient retention",
+          "Mulch the surface to slow evaporation",
+          "Feed little and often, since nutrients wash through quickly"
+        ],
+        "tips": [
+          "Great for early crops because it warms fast",
+          "Water more frequently but in smaller amounts"
+        ],
+        "products": [
+          "compost",
+          "manure",
+          "mulch",
+          "seaweed-feed"
+        ]
+      },
+      "Clay": {
+        "characteristics": "Heavy and sticky when wet, hard when dry. Nutrient-rich but slow to warm and prone to compaction.",
+        "ph": "Usually close to neutral.",
+        "drainage": "Slow — can waterlog in winter and crack in summer.",
+        "crops": [
+          "Cabbage",
+          "Broccoli",
+          "Brussels sprouts",
+          "Cauliflower",
+          "Beans",
+          "Peas",
+          "Fruit trees"
+        ],
+        "amendments": [
+          "Work in coarse organic matter and horticultural grit to open up structure",
+          "Add gypsum to help break up heavy or sodic clay",
+          "Build raised beds to improve drainage"
+        ],
+        "tips": [
+          "Never dig or walk on it when wet — that compacts it badly",
+          "Holds nutrients well once its structure is improved"
+        ],
+        "products": [
+          "grit",
+          "gypsum",
+          "compost",
+          "raised-bed"
+        ]
+      },
+      "Loamy": {
+        "characteristics": "A balanced mix of sand, silt, and clay. The ideal soil: fertile, moisture-retentive, and well-draining.",
+        "ph": "Typically near neutral.",
+        "drainage": "Excellent balance of retention and drainage.",
+        "crops": [
+          "Tomatoes",
+          "Peppers",
+          "Cucumbers",
+          "Sweetcorn",
+          "Squash",
+          "Most vegetables"
+        ],
+        "amendments": [
+          "Top up annually with compost to maintain fertility",
+          "Mulch to protect structure and feed soil life"
+        ],
+        "tips": [
+          "The benchmark every other soil is improved toward",
+          "Rotate crops to keep it balanced and pest-free"
+        ],
+        "products": [
+          "compost",
+          "mulch"
+        ]
+      },
+      "Silt": {
+        "characteristics": "Smooth and fertile, retains moisture well, but particles are fine so it can compact and crust over.",
+        "ph": "Usually near neutral.",
+        "drainage": "Moderate — better than clay, can cap on the surface.",
+        "crops": [
+          "Lettuce",
+          "Chard",
+          "Onions",
+          "Most vegetables",
+          "Fruit bushes",
+          "Climbing plants"
+        ],
+        "amendments": [
+          "Add coarse organic matter to bind particles and improve structure",
+          "Avoid compacting the surface; use beds and paths to limit treading"
+        ],
+        "tips": [
+          "Naturally fertile and moisture-retentive",
+          "A light mulch stops the surface from crusting after rain"
+        ],
+        "products": [
+          "grit",
+          "compost",
+          "mulch"
+        ]
+      },
+      "Peaty": {
+        "characteristics": "Dark, spongy, and rich in organic matter. Holds moisture well and warms quickly, but tends to be acidic and short on some nutrients.",
+        "ph": "Acidic, often around 3.5 to 5.5.",
+        "drainage": "Moisture-retentive; low-lying peat can become waterlogged.",
+        "crops": [
+          "Blueberries",
+          "Potatoes",
+          "Brassicas",
+          "Legumes",
+          "Root vegetables",
+          "Salad leaves"
+        ],
+        "amendments": [
+          "Add lime to raise pH for crops that dislike acidity",
+          "Improve drainage on waterlogged sites",
+          "Supplement with a balanced organic feed"
+        ],
+        "tips": [
+          "Ideal for acid-loving crops like blueberries",
+          "Warms early, giving a head start in spring"
+        ],
+        "products": [
+          "lime",
+          "blood-fish-bone",
+          "compost-ericaceous",
+          "blueberry-bush"
+        ]
+      },
+      "Chalky": {
+        "characteristics": "Pale, stony, and free-draining, often shallow over rock. Alkaline, which can lock up iron and manganese and yellow some plants.",
+        "ph": "Alkaline, often 7.1 to 8.0.",
+        "drainage": "Fast — dries out quickly in summer.",
+        "crops": [
+          "Spinach",
+          "Beets",
+          "Sweetcorn",
+          "Cabbage",
+          "Brassicas in general"
+        ],
+        "amendments": [
+          "Dig in bulky organic matter to hold moisture and nutrients",
+          "Choose lime-tolerant plants rather than fighting the pH",
+          "Use chelated iron for plants showing yellowing (chlorosis)"
+        ],
+        "tips": [
+          "Won't suit acid-lovers like blueberries or rhododendrons",
+          "Mulch heavily to offset fast drainage"
+        ],
+        "products": [
+          "manure",
+          "compost",
+          "chelated-iron"
+        ]
+      }
+    }
+  },
+  "pests": [
+    {
+      "id": "aphids",
+      "name": "Aphids",
+      "type": "pest",
+      "affectedCrops": [
+        "cabbage",
+        "broccoli",
+        "kale",
+        "bean",
+        "pea",
+        "tomato",
+        "pepper",
+        "lettuce",
+        "most vegetables"
+      ],
+      "signs": "Clusters of tiny green, black, or grey insects on shoots and leaf undersides, sticky honeydew, curling leaves, and sometimes sooty mould.",
+      "organicTreatment": [
+        "Dislodge them with a strong jet of water",
+        "Spray insecticidal soap or horticultural oil on undersides",
+        "Encourage lady beetles and lacewings, which prey on them"
+      ],
+      "prevention": [
+        "Avoid over-feeding nitrogen, which spurs soft, aphid-friendly growth",
+        "Plant flowers nearby to attract beneficial insects"
+      ],
+      "source": {
+        "name": "UC Statewide IPM Program",
+        "url": "https://ipm.ucanr.edu/home-and-landscape/aphids/"
+      },
+      "products": [
+        "insecticidal-soap",
+        "hort-oil",
+        "ladybirds"
+      ]
+    },
+    {
+      "id": "cabbage-worm",
+      "name": "Cabbage caterpillars",
+      "type": "pest",
+      "affectedCrops": [
+        "cabbage",
+        "broccoli",
+        "cauliflower",
+        "kale",
+        "brussels sprouts"
+      ],
+      "signs": "Ragged holes in leaves, green caterpillars on undersides, and dark droppings.",
+      "organicTreatment": [
+        "Pick caterpillars off by hand",
+        "Apply Bacillus thuringiensis (Bt), a targeted organic spray",
+        "Cover crops with fine insect netting"
+      ],
+      "prevention": [
+        "Net brassicas before the white butterflies start laying",
+        "Encourage Trichogramma parasitic wasps with flowering plants"
+      ],
+      "source": {
+        "name": "Iowa State University Extension",
+        "url": "https://yardandgarden.extension.iastate.edu/faq/how-do-i-control-cabbageworms"
+      },
+      "products": [
+        "bt-spray",
+        "insect-mesh"
+      ]
+    },
+    {
+      "id": "slugs-snails",
+      "name": "Slugs and snails",
+      "type": "pest",
+      "affectedCrops": [
+        "lettuce",
+        "cabbage",
+        "strawberry",
+        "most vegetables",
+        "seedlings"
+      ],
+      "signs": "Irregular holes in leaves, silvery slime trails, and seedlings disappearing overnight.",
+      "organicTreatment": [
+        "Hand-pick after dark or on damp evenings",
+        "Set beer traps with the rim flush to the soil, or use copper barriers",
+        "Scatter iron-phosphate pellets, which are safer for pets and wildlife"
+      ],
+      "prevention": [
+        "Clear hiding spots like debris and dense ground cover",
+        "Water in the morning so soil is drier by night"
+      ],
+      "source": {
+        "name": "Utah State University Extension",
+        "url": "https://extension.usu.edu/planthealth/research/slugs-snails"
+      },
+      "products": [
+        "beer-traps",
+        "slug-tape",
+        "slug-pellets"
+      ]
+    },
+    {
+      "id": "colorado-potato-beetle",
+      "name": "Colorado potato beetle",
+      "type": "pest",
+      "affectedCrops": [
+        "potato",
+        "eggplant",
+        "tomato"
+      ],
+      "signs": "Yellow-and-black striped beetles, plump orange larvae, and rapidly stripped foliage.",
+      "organicTreatment": [
+        "Hand-pick adults, larvae, and orange egg clusters into soapy water",
+        "Apply Bt (tenebrionis strain) to young larvae",
+        "Use floating row covers early in the season"
+      ],
+      "prevention": [
+        "Rotate potatoes and their relatives to a new bed each year",
+        "Mulch deeply with straw to make it harder for beetles to reach plants"
+      ],
+      "source": {
+        "name": "University of Minnesota Extension",
+        "url": "https://extension.umn.edu/yard-and-garden-insects/colorado-potato-beetle"
+      },
+      "products": [
+        "bt-spray",
+        "row-cover"
+      ]
+    },
+    {
+      "id": "hornworm",
+      "name": "Tomato hornworm",
+      "type": "pest",
+      "affectedCrops": [
+        "tomato",
+        "pepper",
+        "eggplant"
+      ],
+      "signs": "Large green caterpillars with a tail-like horn, stripped stems, and dark droppings below.",
+      "organicTreatment": [
+        "Hand-pick them (look for droppings to find them)",
+        "Apply Bt while caterpillars are small",
+        "Leave any covered in white cocoons — those are parasitic wasps doing the job for you"
+      ],
+      "prevention": [
+        "Cultivate lightly at season end to disrupt pupae in the soil",
+        "Encourage parasitic wasps with flowering herbs"
+      ],
+      "source": {
+        "name": "University of Maryland Extension",
+        "url": "https://extension.umd.edu/resource/key-common-problems-tomatoes"
+      },
+      "products": [
+        "bt-spray"
+      ]
+    },
+    {
+      "id": "spider-mites",
+      "name": "Spider mites",
+      "type": "pest",
+      "affectedCrops": [
+        "bean",
+        "tomato",
+        "cucumber",
+        "strawberry",
+        "most vegetables"
+      ],
+      "signs": "Fine webbing on leaves and a stippled, yellowing, dusty look — worst in hot, dry spells.",
+      "organicTreatment": [
+        "Raise humidity and spray plants with water",
+        "Avoid broad-spectrum insecticides, which kill the mites' predators and worsen outbreaks",
+        "Introduce predatory mites in greenhouses"
+      ],
+      "prevention": [
+        "Keep plants well watered and not heat-stressed",
+        "Remove dusty weeds and debris where mites build up"
+      ],
+      "source": {
+        "name": "University of Maryland Extension",
+        "url": "https://extension.umd.edu/resource/key-common-problems-tomatoes"
+      },
+      "products": [
+        "predatory-mites",
+        "insecticidal-soap",
+        "hort-oil"
+      ]
+    },
+    {
+      "id": "flea-beetle",
+      "name": "Flea beetles",
+      "type": "pest",
+      "affectedCrops": [
+        "radish",
+        "arugula",
+        "cabbage",
+        "broccoli",
+        "eggplant",
+        "turnip",
+        "potato"
+      ],
+      "signs": "Many tiny shot-hole pits across leaves, and small beetles that jump when disturbed.",
+      "organicTreatment": [
+        "Cover seedlings with row fabric from planting until flowering",
+        "Dust leaves with kaolin clay to deter feeding"
+      ],
+      "prevention": [
+        "Raise strong seedlings that can outgrow early damage",
+        "Keep beds weed-free to remove alternate hosts"
+      ],
+      "source": {
+        "name": "University of Maryland Extension",
+        "url": "https://extension.umd.edu/resource/key-common-problems-tomatoes"
+      },
+      "products": [
+        "row-cover",
+        "kaolin",
+        "fleece"
+      ]
+    },
+    {
+      "id": "carrot-fly",
+      "name": "Carrot fly",
+      "type": "pest",
+      "affectedCrops": [
+        "carrot",
+        "parsnip",
+        "celery",
+        "parsley"
+      ],
+      "signs": "Rusty-brown tunnels through the roots, and stunted, reddish foliage.",
+      "organicTreatment": [
+        "Surround or cover the crop with fine insect mesh at least 60cm tall",
+        "Lift affected roots promptly to limit spread"
+      ],
+      "prevention": [
+        "Sow less-susceptible cultivars such as Flyaway or Resistafly",
+        "Avoid thinning on still evenings — the bruised smell attracts the fly",
+        "Rotate crops, since the fly overwinters in the soil"
+      ],
+      "source": {
+        "name": "Royal Horticultural Society",
+        "url": "https://www.rhs.org.uk/biodiversity/carrot-fly"
+      },
+      "products": [
+        "carrot-mesh",
+        "fleece"
+      ]
+    },
+    {
+      "id": "powdery-mildew",
+      "name": "Powdery mildew",
+      "type": "disease",
+      "affectedCrops": [
+        "cucumber",
+        "squash",
+        "melon",
+        "bean",
+        "most vegetables"
+      ],
+      "signs": "A white, powdery coating on leaves and stems, usually starting on older growth.",
+      "organicTreatment": [
+        "Remove the worst-affected leaves",
+        "Spray an OMRI-listed potassium bicarbonate product (e.g. Kaligreen, MilStop)",
+        "Improve airflow by spacing and thinning plants"
+      ],
+      "prevention": [
+        "Water at the base, not over the leaves",
+        "Choose resistant varieties and don't crowd plants"
+      ],
+      "source": {
+        "name": "Cornell University — Vegetables",
+        "url": "https://www.vegetables.cornell.edu/pest-management/disease-factsheets/cucurbit-powdery-mildew/"
+      },
+      "products": [
+        "potassium-bicarb"
+      ]
+    },
+    {
+      "id": "downy-mildew",
+      "name": "Downy mildew",
+      "type": "disease",
+      "affectedCrops": [
+        "cucumber",
+        "squash",
+        "lettuce",
+        "cabbage",
+        "broccoli",
+        "grape"
+      ],
+      "signs": "Yellow patches on upper leaf surfaces with greyish or purple fuzz underneath.",
+      "organicTreatment": [
+        "Remove and destroy infected leaves (don't compost them)",
+        "Increase spacing and airflow",
+        "Grow resistant varieties as the main line of defense"
+      ],
+      "prevention": [
+        "Water early in the day at soil level",
+        "Rotate crops and clear debris"
+      ],
+      "source": {
+        "name": "Cornell University — Vegetables",
+        "url": "https://www.vegetables.cornell.edu/pest-management/disease-factsheets/downy-mildew-of-cucurbits/list-of-biopesticides-for-organic-production/"
+      },
+      "products": [
+        "copper-fungicide"
+      ]
+    },
+    {
+      "id": "late-blight",
+      "name": "Late blight",
+      "type": "disease",
+      "affectedCrops": [
+        "potato",
+        "tomato"
+      ],
+      "signs": "Dark, water-soaked blotches on leaves and stems, white mould underneath, and rapid collapse in damp weather.",
+      "organicTreatment": [
+        "Remove and destroy infected plants immediately — never compost them",
+        "Harvest healthy produce early if blight is spreading"
+      ],
+      "prevention": [
+        "Grow blight-resistant varieties and use certified disease-free seed potatoes",
+        "Space for airflow and water the soil, not the foliage",
+        "Rotate away from tomatoes and potatoes for about three years"
+      ],
+      "source": {
+        "name": "Cornell University — Vegetables",
+        "url": "https://www.vegetables.cornell.edu/crops/tomatoes/late-blight/"
+      },
+      "products": [
+        "copper-fungicide",
+        "seed-potatoes",
+        "tomato-blight-resistant"
+      ]
+    },
+    {
+      "id": "blossom-end-rot",
+      "name": "Blossom end rot",
+      "type": "disorder",
+      "affectedCrops": [
+        "tomato",
+        "pepper",
+        "squash",
+        "melon",
+        "eggplant"
+      ],
+      "signs": "A sunken, dark, leathery patch at the blossom (bottom) end of the fruit.",
+      "organicTreatment": [
+        "This is a calcium-uptake disorder, not an infection — no spray cures it",
+        "Keep watering steady and even, and mulch to hold moisture"
+      ],
+      "prevention": [
+        "Water consistently rather than in feast-or-famine cycles",
+        "Maintain soil pH around 6.3 to 6.8 and avoid excess nitrogen"
+      ],
+      "source": {
+        "name": "University of Maryland Extension",
+        "url": "https://extension.umd.edu/resource/blossom-end-rot-vegetables"
+      },
+      "products": [
+        "timer",
+        "mulch"
+      ]
+    }
+  ],
+  "rotation": {
+    "source": {
+      "name": "Royal Horticultural Society",
+      "url": "https://www.rhs.org.uk/vegetables/crop-rotation"
+    },
+    "cycle": [
+      "Legumes",
+      "Brassicas",
+      "Roots",
+      "Fruiting"
+    ],
+    "families": {
+      "Legumes": {
+        "members": [
+          "Peas",
+          "Broad beans",
+          "Runner beans",
+          "French beans"
+        ],
+        "role": "Fix nitrogen from the air into the soil, leaving it richer for the next crop.",
+        "feeder": "Light feeder that improves the soil",
+        "followWith": "Brassicas",
+        "avoid": "Following another legume in the same bed",
+        "notes": "Leave the roots in the ground after harvest so the captured nitrogen stays in the soil.",
+        "products": [
+          "broad-bean-seeds",
+          "runner-bean-seeds",
+          "pea-seeds"
+        ]
+      },
+      "Brassicas": {
+        "members": [
+          "Cabbage",
+          "Broccoli",
+          "Cauliflower",
+          "Kale",
+          "Brussels sprouts",
+          "Turnips",
+          "Radish"
+        ],
+        "role": "Hungry leafy crops that make the most of the nitrogen left by legumes.",
+        "feeder": "Heavy feeder",
+        "followWith": "Roots",
+        "avoid": "Following another brassica, which lets clubroot build up in the soil",
+        "notes": "Lime acidic soil before planting to discourage clubroot.",
+        "products": [
+          "cabbage-clubroot",
+          "broccoli-seeds",
+          "kale-seeds"
+        ]
+      },
+      "Roots": {
+        "members": [
+          "Carrots",
+          "Parsnips",
+          "Beetroot",
+          "Onions",
+          "Garlic",
+          "Leeks"
+        ],
+        "role": "Reach into the soil for nutrients and help break up lower layers.",
+        "feeder": "Light feeder",
+        "followWith": "Fruiting",
+        "avoid": "Freshly manured ground, which makes roots fork and split",
+        "notes": "Follow brassicas, when the heavy feeding is done and the soil has settled.",
+        "products": [
+          "carrot-seeds",
+          "beetroot-seeds",
+          "onion-sets",
+          "garlic-bulbs"
+        ]
+      },
+      "Fruiting": {
+        "members": [
+          "Tomatoes",
+          "Peppers",
+          "Potatoes",
+          "Squash",
+          "Cucumbers",
+          "Sweetcorn"
+        ],
+        "role": "Heavy feeders that benefit from rich, well-manured ground.",
+        "feeder": "Heavy feeder",
+        "followWith": "Legumes",
+        "avoid": "Following potatoes or tomatoes too closely, which spreads blight",
+        "notes": "Manure this bed well before planting; the legumes that follow will restore nitrogen.",
+        "products": [
+          "tomato-seeds",
+          "seed-potatoes",
+          "grow-bags"
+        ]
+      }
+    },
+    "cropToFamily": {
+      "pea": "Legumes",
+      "bean": "Legumes",
+      "broad bean": "Legumes",
+      "runner bean": "Legumes",
+      "french bean": "Legumes",
+      "cabbage": "Brassicas",
+      "broccoli": "Brassicas",
+      "cauliflower": "Brassicas",
+      "kale": "Brassicas",
+      "brussels sprout": "Brassicas",
+      "turnip": "Brassicas",
+      "radish": "Brassicas",
+      "carrot": "Roots",
+      "parsnip": "Roots",
+      "beetroot": "Roots",
+      "beet": "Roots",
+      "onion": "Roots",
+      "garlic": "Roots",
+      "leek": "Roots",
+      "tomato": "Fruiting",
+      "pepper": "Fruiting",
+      "potato": "Fruiting",
+      "squash": "Fruiting",
+      "cucumber": "Fruiting",
+      "sweetcorn": "Fruiting",
+      "corn": "Fruiting",
+      "eggplant": "Fruiting"
+    }
+  }
+}

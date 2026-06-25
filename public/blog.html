@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Field notes and practical insights on soil, water, crop rotation, and sustainable growing.">
+  <meta property="og:title" content="Journal — Sustainable Farming Assistant">
+  <meta property="og:description" content="Field notes and practical insights on soil, water, crop rotation, and sustainable growing.">
+  <meta property="og:type" content="website">
+  <title>Journal — Sustainable Farming Assistant</title>
+  <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/microsoft-teams/337/seedling_1f331.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="theme.css">
+
+  <style>
+    /* Journal-only styles */
+
+    /* A thumbnail: shows a placeholder until a real <img> is dropped in */
+    .thumb {
+      aspect-ratio: 16 / 10; background: var(--sage-soft);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb svg { width: 40px; height: 40px; color: var(--sage); opacity: 0.55; }
+
+    .cat {
+      display: inline-block; font-size: 0.72rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--terra);
+      background: var(--terra-soft); padding: 4px 10px; border-radius: 999px;
+    }
+    .meta { font-size: 0.85rem; color: var(--muted); margin: 12px 0 0; }
+    .excerpt { font-size: 0.95rem; color: var(--muted); margin: 12px 0 16px; }
+    .read-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.9rem; font-weight: 500; color: var(--sage);
+    }
+    .read-more svg { width: 15px; height: 15px; transition: transform 0.18s ease; }
+    .read-more:hover svg { transform: translateX(3px); }
+
+    /* Featured article */
+    .featured {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 18px; overflow: hidden; margin-bottom: 56px;
+    }
+    .featured .thumb { aspect-ratio: auto; min-height: 320px; }
+    .featured .body { padding: 40px; align-self: center; }
+    .featured h2 {
+      font-family: var(--serif); font-weight: 400; font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+      letter-spacing: -0.01em; margin: 16px 0 0; line-height: 1.2;
+    }
+    @media (max-width: 760px) {
+      .featured { grid-template-columns: 1fr; }
+      .featured .thumb { min-height: 220px; }
+      .featured .body { padding: 28px; }
+    }
+
+    /* Article grid */
+    .post-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 28px; padding-bottom: 90px;
+    }
+    .post {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 16px; overflow: hidden; transition: transform 0.2s ease;
+    }
+    .post:hover { transform: translateY(-4px); }
+    .post .body { padding: 22px; }
+    .post h3 {
+      font-family: var(--serif); font-weight: 500; font-size: 1.25rem;
+      letter-spacing: -0.01em; margin: 14px 0 0; line-height: 1.25;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><span class="dot">&#127793;</span> Sustainable Farming Assistant</a>
+      <nav class="nav-links">
+        <a href="index.html#tools">Tools</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html" class="active">Journal</a>
+        <a href="about.html" class="hide-sm">About</a>
+        <a href="account.html" id="navAccount">Log in</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="page-hero" data-stagger>
+      <p class="eyebrow" data-reveal>The Journal</p>
+      <h1 data-reveal>Field notes for the thoughtful grower</h1>
+      <p data-reveal>Practical insights on soil, water, and sustainable practice — from our team and the wider farming community.</p>
+    </section>
+
+    <!-- Featured article -->
+    <article class="featured" data-reveal>
+      <div class="thumb"><img src="images/blog-future.svg" alt="Sunrise over farm fields"></div>
+      <div class="body">
+        <span class="cat">Sustainable Practices</span>
+        <h2>The future of sustainable farming</h2>
+        <p class="meta">By John Smith · April 15, 2025</p>
+        <p class="excerpt">How modern technology and time-tested practices are combining to make agriculture more sustainable — and more profitable — than ever.</p>
+        <a class="read-more" href="#">Read article
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Article grid -->
+    <section class="post-grid" data-stagger>
+      <article class="post" data-reveal>
+        <div class="thumb"><img src="images/blog-rotation.svg" alt="Crop rotation cycle"></div>
+        <div class="body">
+          <span class="cat">Farming Tips</span>
+          <h3>Maximizing yield with crop rotation</h3>
+          <p class="meta">By Sarah Johnson · April 12, 2025</p>
+          <p class="excerpt">How a well-planned rotation improves soil health and steadily lifts your farm's productivity.</p>
+          <a class="read-more" href="#">Read article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="post" data-reveal>
+        <div class="thumb"><img src="images/blog-irrigation.svg" alt="Watering drops over soil"></div>
+        <div class="body">
+          <span class="cat">Water Management</span>
+          <h3>Smart irrigation techniques</h3>
+          <p class="meta">By Michael Chen · April 10, 2025</p>
+          <p class="excerpt">Innovative ways to conserve water while keeping crops growing at their best.</p>
+          <a class="read-more" href="#">Read article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="post" data-reveal>
+        <div class="thumb"><img src="images/blog-organic.svg" alt="A young sprout growing in soil"></div>
+        <div class="body">
+          <span class="cat">Organic</span>
+          <h3>The benefits of organic farming</h3>
+          <p class="meta">By Emily Brown · April 5, 2025</p>
+          <p class="excerpt">Why going organic pays off for your soil, your crops, and the people who eat them.</p>
+          <a class="read-more" href="#">Read article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="post" data-reveal>
+        <div class="thumb"><img src="images/blog-soil.svg" alt="Layers of healthy soil"></div>
+        <div class="body">
+          <span class="cat">Soil Health</span>
+          <h3>Improving soil health naturally</h3>
+          <p class="meta">By Michael Chen · April 3, 2025</p>
+          <p class="excerpt">Simple, low-cost ways to build living, fertile soil without synthetic inputs.</p>
+          <a class="read-more" href="#">Read article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="post" data-reveal>
+        <div class="thumb"><img src="images/blog-tech.svg" alt="A leaf with a circuit pattern"></div>
+        <div class="body">
+          <span class="cat">Technology</span>
+          <h3>Smart farming technologies</h3>
+          <p class="meta">By Sarah Johnson · March 30, 2025</p>
+          <p class="excerpt">The tools quietly reshaping how small farms plan, plant, and harvest.</p>
+          <a class="read-more" href="#">Read article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          Sustainable Farming Assistant
+          <p>Tools and knowledge for farming that's good for the yield and the land.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="index.html#tools">Tools</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Journal</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@farmingassistant.com">info@farmingassistant.com</a>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a>
+        </div>
+      </div>
+      <div class="copyright">&copy; <span class="js-year">2026</span> Sustainable Farming Assistant &middot; For educational purposes</div>
+    </div>
+  </footer>
+
+  <script src="motion.js"></script>
+</body>
+</html>

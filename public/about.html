@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tools and knowledge that help growers work with the land, not against it — meet the Sustainable Farming Assistant.">
+  <meta property="og:title" content="About — Sustainable Farming Assistant">
+  <meta property="og:description" content="Tools and knowledge that help growers work with the land, not against it — meet the Sustainable Farming Assistant.">
+  <meta property="og:type" content="website">
+  <title>About — Sustainable Farming Assistant</title>
+  <link rel="icon" type="image/x-icon" href="https://em-content.zobj.net/source/microsoft-teams/337/seedling_1f331.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="theme.css">
+
+  <style>
+    /* About-only styles */
+
+    .section { padding: 56px 0; }
+    .section + .section { border-top: 1px solid var(--line); }
+    .section h2 {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(1.8rem, 4vw, 2.4rem); letter-spacing: -0.01em; margin-bottom: 16px;
+    }
+    .lead { font-size: 1.08rem; color: var(--muted); max-width: 62ch; }
+
+    .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+    @media (max-width: 720px) { .values { grid-template-columns: 1fr; } }
+    .value { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; }
+    .value .ic {
+      width: 46px; height: 46px; border-radius: 12px; background: var(--sage-soft); color: var(--sage);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .value .ic svg { width: 24px; height: 24px; }
+    .value h3 { font-family: var(--serif); font-weight: 500; font-size: 1.25rem; margin-bottom: 6px; }
+    .value p { font-size: 0.95rem; color: var(--muted); }
+
+    /* Impact band */
+    .impact { background: var(--sage-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .impact .wrap { padding-top: 56px; padding-bottom: 56px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 36px; }
+    @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    .stat .num {
+      font-family: var(--serif); font-weight: 500; font-size: clamp(2.2rem, 5vw, 3rem);
+      color: var(--sage-2); line-height: 1; letter-spacing: -0.02em;
+    }
+    .stat .lab { font-size: 0.95rem; color: var(--muted); margin-top: 8px; }
+
+    /* Team */
+    .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+    @media (max-width: 860px) { .team { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 460px) { .team { grid-template-columns: 1fr; } }
+    .member { text-align: center; }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px;
+      background: var(--terra-soft); color: var(--terra);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 500;
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .member h3 { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; }
+    .member .role { font-size: 0.85rem; color: var(--sage); letter-spacing: 0.04em; margin: 4px 0 8px; }
+    .member p { font-size: 0.9rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><span class="dot">&#127793;</span> Sustainable Farming Assistant</a>
+      <nav class="nav-links">
+        <a href="index.html#tools">Tools</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html" class="hide-sm">Journal</a>
+        <a href="about.html" class="active">About</a>
+        <a href="account.html" id="navAccount">Log in</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" data-stagger>
+      <div class="wrap">
+        <p class="eyebrow" data-reveal>Our story</p>
+        <h1 data-reveal>Technology in service of the land</h1>
+        <p data-reveal>We build tools that help farmers grow more while protecting the soil, water, and seasons they depend on.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 data-reveal>Our mission</h2>
+        <p class="lead" data-reveal>Sustainable Farming Assistant exists to put practical, science-backed guidance within reach of every grower. We pair traditional farming wisdom with modern tools so that working with nature — not against it — becomes the easiest choice, not the hardest.</p>
+
+        <div class="values" data-stagger>
+          <div class="value" data-reveal>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-3 8-7 8-12a8 8 0 0 0-16 0c0 5 3 9 8 12z"></path><path d="M12 22V10"></path><path d="M12 13c-2 0-3.5-1.5-3.5-3.5"></path></svg></div>
+            <h3>Sustainability</h3>
+            <p>Practices that protect and enhance the environment for the long term.</p>
+          </div>
+          <div class="value" data-reveal>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 21h4"></path><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.4 1 2.5h6c0-1.1.3-1.8 1-2.5A6 6 0 0 0 12 3z"></path></svg></div>
+            <h3>Innovation</h3>
+            <p>Using technology to solve real agricultural challenges, simply.</p>
+          </div>
+          <div class="value" data-reveal>
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M15 8a3 3 0 1 0 0-.1"></path><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"></path><path d="M15 15c3 0 6 2 6 5"></path></svg></div>
+            <h3>Community</h3>
+            <p>Building a global network of growers who share what works.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact">
+      <div class="wrap">
+        <p class="eyebrow" style="color: var(--sage);" data-reveal>By the numbers</p>
+        <h2 style="font-family: var(--serif);" data-reveal>Our impact so far</h2>
+        <div class="stats" data-stagger>
+          <div class="stat" data-reveal><div class="num" data-count-to="10" data-count-suffix="K+">10K+</div><div class="lab">Farmers assisted</div></div>
+          <div class="stat" data-reveal><div class="num" data-count-to="50" data-count-suffix="K+">50K+</div><div class="lab">Hectares optimized</div></div>
+          <div class="stat" data-reveal><div class="num" data-count-to="30" data-count-suffix="%">30%</div><div class="lab">Average yield increase</div></div>
+          <div class="stat" data-reveal><div class="num" data-count-to="25" data-count-suffix="%">25%</div><div class="lab">Water usage reduced</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 data-reveal>The team</h2>
+        <p class="lead" data-reveal>A small group of agronomists, technologists, and growers working to make sustainable farming the default.</p>
+
+        <div class="team" data-stagger>
+          <div class="member" data-reveal>
+            <div class="avatar">JS</div>
+            <h3>John Smith</h3>
+            <div class="role">Agricultural Scientist</div>
+            <p>20+ years in sustainable farming practices.</p>
+          </div>
+          <div class="member" data-reveal>
+            <div class="avatar">SJ</div>
+            <h3>Sarah Johnson</h3>
+            <div class="role">Technology Director</div>
+            <p>Expert in agricultural technology and automation.</p>
+          </div>
+          <div class="member" data-reveal>
+            <div class="avatar">MC</div>
+            <h3>Michael Chen</h3>
+            <div class="role">Soil Specialist</div>
+            <p>Leads our research on soil health and optimization.</p>
+          </div>
+          <div class="member" data-reveal>
+            <div class="avatar">EB</div>
+            <h3>Emily Brown</h3>
+            <div class="role">Community Manager</div>
+            <p>Connects growers and shares best practices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          Sustainable Farming Assistant
+          <p>Tools and knowledge for farming that's good for the yield and the land.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="index.html#tools">Tools</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Journal</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@farmingassistant.com">info@farmingassistant.com</a>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a>
+        </div>
+      </div>
+      <div class="copyright">&copy; <span class="js-year">2026</span> Sustainable Farming Assistant &middot; For educational purposes</div>
+    </div>
+  </footer>
+
+  <script src="motion.js"></script>
+</body>
+</html>
